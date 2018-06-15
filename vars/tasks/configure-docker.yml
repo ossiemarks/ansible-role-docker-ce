@@ -62,9 +62,3 @@
   changed_when: docker_service.status.SubState != "running"
   when: docker_service.status is defined
 
-- name: enable IPv6 on Docker
-  lineinfile:
-    path: /etc/docker/daemon.json
-    line: '{ "ipv6": true, "fixed-cidr-v6": "2001:db8:1::/64" }'
-    state: present
-
